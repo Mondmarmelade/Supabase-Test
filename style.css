@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap");
+
+body {
+  background-color: #191919;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  color: #ffffff;
+  font-family: "Fredoka", sans-serif;
+}
+
+input {
+  width: 200px;
+  height: 30px;
+  text-align: center;
+  border-radius: 10px;
+  border: 0px;
+  outline: none;
+}
+
+button {
+  width: 200px;
+  height: 30px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 0px;
+  cursor: pointer;
+}
