@@ -1,5 +1,6 @@
-const supabaseUrl = secrets.SUPABASE_URL;
-const supabaseKey = secrets.SUPABASE_KEY;
+const supabaseUrl = "https://ykkkmxqmnjbzcsgqwmph.supabase.co";
+const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlra2tteHFtbmpiemNzZ3F3bXBoIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDc1MzY1NjYsImV4cCI6MTk2MzExMjU2Nn0.V1kNRTZf-tSQDGwftoTSD_UAOin6IV06DBqXN43_NXU";
 
 var supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
