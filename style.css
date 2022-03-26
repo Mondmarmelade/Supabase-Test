@@ -33,3 +33,23 @@ button {
   border: 0px;
   cursor: pointer;
 }
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 200px;
+  padding-inline: 20px;
+  margin-bottom: 10px;
+  background-color: #292929;
+  border-radius: 10px;
+}

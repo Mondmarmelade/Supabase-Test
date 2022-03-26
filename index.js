@@ -4,27 +4,55 @@ const supabaseKey =
 
 var supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
+const contentDiv = document.querySelector(".content");
+const input = document.getElementById("input");
+const input_something = document.querySelector(".input_something");
+
+function formatDate(date) {
+  var d = new Date(date),
+    month = "" + (d.getMonth() + 1),
+    day = "" + d.getDate(),
+    year = d.getFullYear();
+
+  if (month.length < 2) month = "0" + month;
+  if (day.length < 2) day = "0" + day;
+
+  return [year, month, day].join("-");
+}
+
 async function getRow() {
   let { data: Data, error } = await supabase.from("Data").select("*");
-  console.log(Data);
+  Data.forEach((data) => {
+    renderContent(data);
+  });
 }
 
 async function writeData() {
   event.preventDefault();
-  const input = document.getElementById("input");
+  if (input.value == "") {
+    return (input_something.style.color = "red");
+  }
   newData = input.value;
-  console.log(input.value);
   const { data, error } = await supabase
     .from("Data")
     .insert([{ content: newData }]);
   input.value = "";
+  location.reload();
 }
 
-const Data = supabase
-  .from("Data")
-  .on("*", (payload) => {
-    console.log("Change received!", payload);
-  })
-  .subscribe();
+function renderContent(data) {
+  let div = document.createElement("div");
+  let title = document.createElement("p");
+  let date = document.createElement("p");
+
+  div.setAttribute("class", "item");
+  title.textContent = data.content;
+  date.textContent = formatDate(data.created_at);
+
+  div.appendChild(title);
+  div.appendChild(date);
+
+  contentDiv.appendChild(div);
+}
 
 getRow();
